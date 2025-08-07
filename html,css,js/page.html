@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    
+        .main{
+            position: absolute;
+            top: 300px;
+            background-color: gray;
+            width: 900px;
+            display: grid;
+            grid-template-columns: 200px 200px 200px 100px 100px;
+            grid-template-rows: 30px;
+            justify-content: center;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            gap: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }
+        .main input{
+            height: 30px;
+            width: 200px;
+            border: 2px solid;
+            border-radius: 5px;
+        }
+        @media(max-width:930px){
+            .main{
+                grid-template-columns: 200px 200px 200px;
+                grid-template-rows: 100px 100px;
+                align-items: center;
+            }
+            .fields{
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+            }
+        }
+        @media(max-width:550px){
+            .main{
+                grid-template-columns: 400px;
+                grid-row: 400px 100px 100px 100px 100px;
+            }
+        }
+    </style>
+    <div class="main">
+        <div class="feilds"><input type="text" placeholder="name"></div>
+        <div class="feilds"><input type="text" placeholder="city"></div>
+        <div class="feilds"><input type="text" placeholder="state"></div>
+        <div class="feilds"><button style="background-color: aqua; border-radius: 5px; width: 100px; height: 30px; color: black;">filter</button></div>
+        <div class="feilds"><button style="background-color: rgb(255, 166, 0); border-radius: 5px; width: 100px; height: 30px; color: black;">search</button></div>
+    </div>    
+</body>
+</html>

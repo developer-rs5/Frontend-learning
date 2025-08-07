@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: gray;
+        padding: 10px;
+    }
+    .step1 {
+        margin: auto;
+        display: grid;
+        grid-template-columns: 210px 210px 210px 210px 210px;
+        grid-template-rows: 50px;
+        justify-content: center;
+
+
+    }
+
+    .step2 {
+        height: 40px;
+        width: 200px;
+        border: 1px solid black;
+    }
+
+    @media(max-width:1144px){
+        .step1{
+            grid-template-columns: 310px 310px 310px;
+            grid-row: 250px 250px;
+        }
+        .step2  {
+            margin-left: auto;
+            margin-right: auto
+            ;
+            width: 300px;
+        }
+    }
+    @media(max-width:950px){
+        .step1{
+            grid-template-columns: 500px;
+            grid-template-rows: 100px 100px 100px 100px 400px;
+        }
+        .step2{
+            width: 100%;
+        }
+    }
+    @media(max-width:540px){
+        .step2{
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+        }
+    }
+</style>
+
+<body>
+    <div class="step1">
+        <div class="step2"></div>
+        <div class="step2"></div>
+        <div class="step2"></div>
+        <div class="step2"></div>
+        <div class="step2"></div>
+    </div>
+</body>
+
+</html>

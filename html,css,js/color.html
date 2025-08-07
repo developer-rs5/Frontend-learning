@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+
+        .main {
+            height: 400px;
+            width: 400px;
+            background-color: white;
+            border: 1px solid;
+            border-radius: 20px;
+
+
+        }
+
+        .main2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .display {
+            height: 50px;
+            width: 300px;
+            border: 2px solid;
+            margin-top: 50px;
+
+        }
+
+        .main3 {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            height: 25px;
+            border: none;
+            width: 140px;
+            background-color: red;
+            color: white;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="main">
+            <h2 style="text-align: center;">Color Code Genrate</h2>
+            <div class="main2">
+                <div class="display">
+                    <h3 style="text-align: center;" id="display-box">#ffffff</h3>
+                </div>
+            </div>
+            <div class="main3">
+                <button id="generate">generate</button>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function genrate() {
+            return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')
+        }
+
+
+        document.getElementById("generate").addEventListener("click", () => {
+            let newcolor = genrate();
+            document.body.style.backgroundColor = newcolor;
+            document.getElementById('display-box').textContent = newcolor;
+        })
+    </script>
+    <script src="liveserver.js"></script>
+</body>
+
+</html>

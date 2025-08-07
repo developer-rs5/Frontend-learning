@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;             
+            list-style: none;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to right, rgb(85, 85, 85), white);
+        }
+
+        nav {
+            width: 100%;
+            height: 60px;
+            background-color: rgba(5, 5, 5, 0.7);
+            display: flex;
+            align-items: center;    
+            justify-content: space-between;
+            padding: 0 100px;
+        }
+
+        .logo {
+            color: #fefefe;
+            font-size: 25px;
+            font-weight: bold
+        }
+
+        .act-res {
+            display: none;
+        }
+
+        .nav-links ul {
+            display: flex;
+        }
+
+        .nav-links ul li a {
+            display: block;
+            color: #fefefe;
+            font-size: 20px;
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: 0.2s;
+            margin: 0 5px;
+        }
+
+        .nav-links ul li a:hover {
+            color: black;
+            background: #fefefe;
+        }
+
+        .nav-links ul li a.active {
+            color: black;
+            background: #fefefe;
+        }
+
+        .nav-links.nav-active {
+            height: 450px;
+        }
+
+        .nav-links.nav-active ul {
+            opacity: 1;
+        }
+
+        @media(max-width:1320px) {
+            nav {
+                padding: 0 50px;
+            }
+        }
+
+        @media(max-width:1111px) {
+            nav {
+                padding: 0 30px;
+            }
+        }
+
+        @media(max-width:900px) {
+            .act-res {
+                display: block;
+                background: transparent;
+                cursor: pointer;
+            }
+
+            .act-res .line {
+                width: 30px;
+                height: 3px;
+                background: #fefefe;
+                margin: 6px 0;
+            }
+
+            .nav-links {
+                overflow: hidden;
+                position: absolute;
+                height: 0px;
+                top: 60px;
+                left: 0;
+                right: 0;
+                width: 100vw;
+                background: rgba(5, 5, 5, 0.7);
+                transition: 0.2s;
+            }
+
+            .nav-links ul {
+                display: block;
+                width: fit-content;
+                margin: 80px auto 0 auto;
+                text-align: center;
+                transition: 0.5s;
+                opacity: 0;
+            }
+
+            .nav-links ul li a {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Zenuxs Host</div>
+        <div class="act-res">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li> <a href="#" class="active">home</a></li>
+                <li><a href="#">pages</a></li>
+                <li><a href="#">services</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        const act_res = document.querySelector(".act-res")
+        act_res.onclick = function () {
+            const nav_bar = document.querySelector(".nav-links")
+            nav_bar.classList.toggle("nav-active")
+        }
+    </script>
+</body>
+
+</html>

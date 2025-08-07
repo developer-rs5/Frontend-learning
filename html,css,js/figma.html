@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            background-color: rgb(250, 248, 248);
+        }
+
+        header .main2 {
+
+            display: flex;
+            padding: 10px 20px;
+            height: 60px;
+            background-color: #fefefe;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            position: sticky;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            color: rgb(41, 40, 40);
+        }
+
+        .nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+
+        }
+
+        .nav ul li {
+            font-size: 20px;
+
+        }
+
+        .main2 p {
+            font-size: 15px;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-right button {
+            border: 1px solid;
+            border-radius: 50px;
+            height: 40px;
+            background: transparent;
+
+        }
+
+        .nav-main {
+            background-image: url("https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?_gl=1*z9cqxm*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQzMDY4MTgkbzEkZzEkdDE3NTQzMDY4NDQkajM0JGwwJGgw");
+            background-size: cover;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 600px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .logo i {
+            font-size: 20px;
+        }
+
+        .nav-right i {
+            font-size: 20px;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 200px;
+            margin-left: auto;
+
+            margin-right: auto;
+            left: 0;
+            right: 0;
+        }
+
+        .center2 {
+            display: block;
+            width: 400px;
+
+        }
+
+        .center2 * {
+            margin-bottom: 20px;
+        }
+
+        .center2 h1 {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        .center2 p {
+            text-align: center;
+        }
+
+        .center ul {
+
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+
+        }
+
+        .center2 ul li {
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .center2 button,
+        .part5 button {
+
+            border: none;
+            background-color: rgb(255, 255, 98);
+            border-radius: 5px;
+            height: 40px;
+            width: 100px;
+        }
+
+        .center2 div {
+            text-align: center
+        }
+
+        .part2 {
+            display: grid;
+            position: absolute;
+            top: 550px;
+            height: 100px;
+            margin: 0 auto 0 auto;
+            left: 0;
+            right: 0;
+            background-color: black;
+            border-radius: 30px;
+            width: 1100px;
+            grid-template-columns: 250px 250px 250px 200px;
+            grid-template-rows: 200px;
+            gap: 30px;
+            justify-content: center;
+            padding-top: 30px;
+        }
+
+        .part2 .grid {
+            position: relative;
+            border: 2px solid black;
+            height: 50px;
+            border-radius: 20px;
+        }
+
+        .grid input {
+            padding-left: 20px;
+            border-radius: 20px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .grid button {
+            height: 100%;
+            width: 100%;
+            border-radius: 20px;
+            background-color: rgb(253, 253, 119);
+            cursor: pointer;
+        }
+
+        .part3 {
+            margin-top: 150px;
+        }
+
+        .cen-div {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: 200px 200px 200px 200px;
+            grid-template-rows: 100px;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            border-radius: 13px;
+            background-image: url("https://images.pexels.com/photos/2129796/pexels-photo-2129796.png?_gl=1*1c9itoz*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQzMTc1NzEkbzIkZzEkdDE3NTQzMTc1NzgkajUzJGwwJGgw");
+        }
+
+        .card h2,
+        .card p {
+            text-align: center;
+            color: #fefefe
+        }
+
+        .part4 {
+            margin-top: 300px;
+            display: block;
+        }
+
+        .part4-1 {
+            text-align: center;
+            color: black;
+        }
+
+        .part4-1 p {
+            margin-top: 10px;
+        }
+
+        .part4-2 {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: 300px 300px 300px;
+            grid-template-rows: 100px;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .info {
+            height: 300px;
+            width: 300px;
+        }
+
+        .info * {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .info i {
+            font-size: 50px;
+        }
+
+        .part4-3 {
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-between;
+            padding: 30px;
+            border: 2px solid;
+            width: 800px;
+            border-radius: 10px;
+            background-color: rgb(51, 158, 51);
+            align-items: center;
+        }
+
+        .part4-3-1 {
+            width: 500px;
+            text-align: center;
+        }
+
+        .part4-3-1 * {
+            color: #fefefe;
+        }
+
+        .part4-3-2 button {
+            background-color: rgb(252, 252, 130);
+            color: rgb(51, 158, 51);
+            height: 50px;
+            width: 200px;
+            border: none;
+            border-radius: 10px;
+
+        }
+
+        .part5 {
+            display: block;
+            margin-top: 100px;
+        }
+
+        .part5 ul {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 50px;
+        }
+
+        .part5 ul li {
+            font-size: 20px;
+        }
+
+        .part5 .active-li {
+            border: 2px solid black;
+            color: black;
+            height: 40px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            width: 150px;
+            justify-content: center;
+            background-color: #dfdcdc;
+        }
+
+        .cardss {
+            margin-top: 50px;
+            display: grid;
+            justify-content: center;
+            gap: 50px;
+            grid-template-columns: 400px 400px 400px;
+            grid-area: 400px 400px 400px;
+            border-radius: 15px;
+        }
+
+        .cardd {
+            display: flex;
+            gap: 20px;
+            border-radius: 15px;
+            height: 600px;
+            width: 400px;
+            background-size: cover;
+            background-image: url("https://images.pexels.com/photos/5461644/pexels-photo-5461644.jpeg?_gl=1*1ukd1lv*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQzNjY3NTAkbzQkZzEkdDE3NTQzNjY3NjYkajQ0JGwwJGgw");
+        }
+
+        .for-sell {
+            display: flex;
+            margin: 20px;
+            align-items: center;
+            width: 100px;
+            height: 30px;
+            background-color: rgb(241, 241, 88);
+            border-radius: 50px;
+            justify-content: center;
+        }
+
+        .top-pro {
+            display: flex;
+            margin-left: 20px;
+            margin-top: 20px;
+            align-items: center;
+            width: 100px;
+            height: 30px;
+            background-color: rgb(69, 247, 108);
+            border-radius: 50px;
+            justify-content: center;
+        }
+
+        .part6 {
+            background-image: url("https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?_gl=1*asu8tw*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQzNzUwNzAkbzUkZzEkdDE3NTQzNzUwNzEkajU5JGwwJGgw");
+            background-size: cover;
+            height: 600px;
+            width: 100%;
+            background-position: center;
+            margin-top: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+
+        }
+
+        .part6-1 {
+            text-align: center;
+            width: 500px;
+        }
+
+        .part6-1 h1,
+        .part6-1 p {
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .part6-1 button {
+            height: 50px;
+            width: 200px;
+            border: none;
+            border-radius: 40px;
+            background-color: rgb(252, 252, 85);
+            color: black;
+            font-size: 18px;
+        }
+
+        .part7 {
+
+            display: flex;
+            width: 100%;
+            height: 800px;
+            margin-top: 150px;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .part7-1,
+        .part7-2 {
+            padding: 10px;
+            border-radius: 20px;
+            width: 400px;
+            height: 600px;
+        }
+
+        .part7-1-1 {
+            text-align: center;
+        }
+
+        .part7-2 {
+            background-size: cover;
+            background-image: url("https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?_gl=1*asu8tw*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQzNzUwNzAkbzUkZzEkdDE3NTQzNzUwNzEkajU5JGwwJGgw");
+        }
+
+        .boxs {
+            display: flex;
+            justify-content: center;
+        }
+
+        .box {
+            width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .box * {
+            margin-top: 20px;
+        }
+
+        .part7-1 button {
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            border: none;
+            background-color: rgb(253, 253, 91);
+            height: 40px;
+            width: 150px;
+        }
+
+        .part8 {
+            height: 400px;
+            display: block;
+            padding: 100px;
+            background-color: black;
+        }
+
+        .part8 * {
+            color: #fefefe;
+        }
+
+        .class8info {
+            height: 350px;
+            display: block;
+        }
+
+        .part8-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .part8-info img {
+            margin-bottom: 30px;
+            height: 100px;
+            border-radius: 50%;
+            width: 100px;
+        }
+
+        .part8-infoo {
+            height: 100px;
+            width: 500px;
+        }
+
+        .part8-infooo {
+            display: flex;
+            gap: 30px;
+        }
+
+        .part8-infoo-1 {
+            display: flex;
+            gap: 40px;
+        }
+
+        .part8-info * {
+            margin-bottom: 20px;
+        }
+
+        .part8-info2 {
+            display: block;
+        }
+
+        .part8-info2 {
+            text-align: center;
+        }
+
+        .part8info2-1 {
+            display: grid;
+            grid-template-columns: 150px 150px 150px 150px 150px 150px;
+            grid-template-rows: 100px;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .part8info2-1 div {
+            height: 50px;
+            width: 150px;
+            border: 1px solid wheat;
+            border-radius: 5px;
+        }
+
+        .part9 {
+            margin-top: 100px;
+
+            justify-content: center;
+        }
+
+        .kards {
+            margin-top: 50px;
+            display: grid;
+            justify-content: center;
+            gap: 60px;
+            grid-template-columns: 250px 250px 250px 250px;
+            grid-template-rows: 350px;
+        }
+
+        .kard {
+            text-align: center;
+            height: 350px;
+            border-radius: 20px;
+            width: 250px;
+            box-shadow: gray 5px 5px 5px;
+        }
+
+        .kard img {
+            height: 200px;
+            width: 100%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .kard ul {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .part9-1 {
+            gap: 80px;
+            border-radius: 50px;
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 500px 500px;
+            grid-template-rows: 400px;
+            padding: 20px;
+            justify-content: center;
+            width: 1300px;
+            height: 400px;
+            background-color: rgb(111, 252, 130);
+        }
+
+        .boxx {
+            width: 500px;
+        }
+
+        .boxx div {
+            margin-bottom: 20px;
+        }
+
+        .boxx button {
+            width: 80px;
+            height: 30px;
+            border: none;
+            border-radius: 50px;
+            margin-top: 70px;
+            background-color: rgb(3, 245, 35);
+        }
+
+        .boxxx {
+            border: 2px solid black;
+            height: 70px;
+            width: 300px;
+        }
+
+        .boxx img {
+            border-radius: 30px;
+            height: 400px;
+
+        }
+
+        @media (max-width:1350px) {
+
+            /* .part2 {
+                justify-content: center;
+                align-items: center;
+                height: 350px;
+                width: 600px;
+                grid-template-columns: 100px;
+                grid-template-rows: 60px 60px 60px 60px;
+            }
+            .grid{
+                width: 400px;
+                margin-bottom: 30px;
+                left: 20px;
+            } */
+            .part8 {
+                height: 600px;
+            }
+
+            .part8info2-1 {
+                margin-top: 50px;
+                grid-template-columns: 150px 150px 150px;
+                grid-template-rows: 50px 50px 50px;
+
+            }
+
+            .part2,
+            .grid {
+                display: none;
+            }
+
+            .cardss {
+                gap: 30px;
+                grid-template-columns: 300px 300px 300px;
+                grid-area: 300px 300px 300px;
+            }
+
+            .cardd {
+                width: 300px;
+                height: 400px;
+            }
+
+            .kards {
+                grid-template-columns: 250px 250px;
+                grid-template-columns: 250px 250px;
+            }
+
+            .part9-1 {
+                display: block;
+                width: 100%;
+                height: 800px;
+                text-align: center;
+            }
+
+            .boxx {
+                margin: 0 auto 0 auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
+
+            .boxx img {
+                width: 90%;
+            }
+
+        }
+
+
+
+        @media(max-width:996px) {
+
+            .foother-text {
+                justify-content: space-between;
+                padding: 20px;
+                height: 150px;
+                gap: 0;
+            }
+
+            .foother-text div {
+                width: 200px;
+            }
+
+            .part7 {
+                display: block;
+            }
+
+            .part7-1,
+            .part7-2 {
+                margin: 0 auto 0 auto;
+                left: 0;
+                right: 0;
+            }
+
+            .part8 {
+                margin-top: 500px;
+            }
+
+            .cards {
+                gap: 50px;
+                grid-template-columns: 300px 300px;
+                grid-template-rows: 350px 350px;
+            }
+
+
+            .part4-2 {
+                gap: 10px;
+                grid-template-columns: 300px;
+                grid-template-rows: 200px 200px 200px;
+            }
+
+            .part4-3 {
+                width: 600px;
+            }
+
+            .cardss {
+                gap: 20px;
+                grid-template-columns: 300px 300px;
+                grid-area: 300px 300px 300px 300px;
+            }
+        }
+
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 950px) {
+
+            .nav-right p,
+            i {
+                display: none;
+            }
+
+            .nav ul {
+
+                flex-direction: column;
+                background: #333;
+                z-index: 1;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                display: none;
+                padding: 10px;
+                z-index: 20;
+            }
+
+            .nav ul li {
+                color: white;
+                padding: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav.active ul {
+                display: flex;
+            }
+        }
+
+        @media(max-width:730px) {
+            .kards {
+                margin-top: 50px;
+                display: grid;
+                justify-content: center;
+                gap: 60px;
+                grid-template-columns: 250px;
+                grid-template-rows: 350px 350px 350px 350px;
+            }
+
+            .kard {
+                text-align: center;
+                height: 350px;
+                border-radius: 20px;
+                width: 250px;
+                box-shadow: gray 5px 5px 5px;
+            }
+
+            .part9-1 {
+                width: 90%;
+            }
+
+            .cards {
+                display: grid;
+                grid-template-columns: 300px;
+                grid-template-rows: 300px 300px 300px 300px;
+                justify-content: center;
+                gap: 30px;
+            }
+
+            .card {
+                width: 300px;
+            }
+
+            .part8info2-1 {
+                grid-template-columns: 150px 150px;
+                grid-template-rows: 50px 50px 50px 50px;
+            }
+
+            .part8 {
+
+                height: 830px;
+            }
+
+            .part8-infoo {
+                margin-top: 100px;
+                width: 100%;
+                margin-bottom: 50px;
+            }
+
+            .part8-infoo img {
+                width: 90%;
+            }
+
+            .part8-infooo {
+                width: 90%;
+            }
+
+            .part8-info {
+                display: block;
+            }
+
+            .part8-info2 {
+                margin-top: 100px;
+            }
+
+
+            .part8-info .cards {
+                gap: 50px;
+                grid-template-columns: 400px;
+                grid-template-rows: 350px 350px 350px 350px;
+            }
+
+
+            .part4-2 {
+                gap: 10px;
+                grid-template-columns: 300px;
+                grid-template-rows: 200px 200px 200px;
+            }
+
+            .part4-3 {
+                width: 100%;
+                display: block;
+            }
+
+            .part4-3-1 {
+                width: 100%;
+                display: block;
+            }
+
+            .part4-3-2 {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .nav-right p,
+            .nav-icon {
+                display: none;
+            }
+
+            .cardss {
+                gap: 10px;
+                grid-template-columns: 200px 200px;
+                grid-area: 200px 200px 200px 200px;
+            }
+
+            .cardd {
+                gap: 10px;
+                width: 200px;
+                height: 200px;
+                height: 300px;
+            }
+
+            .top-pro {
+                font-size: 10px;
+                margin-left: 5px;
+                width: 150px;
+            }
+
+            .for-sell {
+                margin-left: 10px;
+            }
+
+            .boxx {
+                width: 90%;
+            }
+        }
+
+        @media(max-width:450px) {
+            .part8-infooo {
+                display: block;
+                gap: 5px;
+                margin-top: 100px;
+            }
+            .part8info2-1{
+                grid-template-columns: 100px 100px;
+                grid-template-rows: 50px 50px 50px 50px;
+                gap: 10px;
+            }
+            .part8-info2{
+                margin-top: 700px;
+            }
+            .part8-infooo{
+                display: none;
+            }
+            .boxxx{
+                height: 50px;
+                width: 100px;
+
+            }
+            .part7-2{
+                margin-top: 50px;
+                width: 90%;
+            }
+            .part7-1{
+                width: 90%;
+            }
+            .part8info2-1 div{
+                width: 100px;
+                height: 50px;
+            }
+            .part8-info2 {
+                margin-top: 150px;
+            }
+
+            .part10 input {
+                width: 300px;
+            }
+
+            .foother-text div {
+                width: 100%;
+            }
+/* 
+            .foother-text {
+                display: none;
+            } */
+
+            .foother {
+                width: 90%;
+            }
+
+            .foother button {
+                display: none;
+            }
+
+            .top-pro {
+                font-size: 20px;
+                margin-left: 10px;
+                font-weight: bold;
+                width: 130px;
+            }
+
+            .for-sell {
+                font-size: 20px;
+                width: 150px;
+                margin-left: 20px;
+            }
+
+            .cards {
+                gap: 50px;
+                grid-template-columns: 90%;
+                grid-template-rows: 350px 350px 350px 350px;
+            }
+
+            .cen-div {
+                width: 90%;
+                margin: 0 auto 0 auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .cen-div p {
+                margin-bottom: 40px;
+            }
+
+            .cardss {
+
+                grid-template-columns: 90%;
+                grid-area: 90% 90% 90% 90% 90% 90%;
+            }
+
+            .cardd {
+                width: 90%;
+                height: 500px;
+                margin: 0 auto 0 auto;
+                left: 0;
+                right: 0;
+            }
+
+            .part5 ul {
+                gap: 10px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-main">
+            <div class="main">
+            </div>
+            <div class="main2">
+                <div class="logo">
+                    <i class="fa-solid fa-hotel"></i>
+                    <h1>JustHome</h1>
+                </div>
+
+                <div class="nav">
+                    <ul>
+                        <li>Home</li>
+                        <li>ListING</li>
+                        <li>Members</li>
+                        <li>Blog</li>
+                        <li>Pages</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+
+                <div class="nav-right">
+                    <div class="menu-toggle" id="menu-toggle">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <i class="nav-icon" " class=" fa-solid fa-phone-volume"></i>
+                    <p>+34 56789456</p>
+                    <i class="nav-icon" class="fa-solid fa-circle-user"></i>
+                    <button>Add property</button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="center">
+            <div class="center2">
+                <div>
+                    <ul>
+                        <li>about</li>
+                        <li>try for free</li>
+                        <li>lisense key</li>
+                    </ul>
+                </div>
+                <div>
+                    <h1>
+                        Office Space At northwaste
+                    </h1>
+                </div>
+                <div>
+                    <p>250$/month</p>
+                </div>
+                <div>
+                    <button>View details -></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="part2">
+            <div class="grid">
+                <input type="text" placeholder="helloworld">
+            </div>
+            <div class="grid">
+                <input type="text" placeholder="helloworld">
+            </div>
+            <div class="grid">
+                <input type="text" placeholder="helloworld">
+            </div>
+
+            <div class="grid" style="display: flex; gap: 2px;">
+                <input style="border-bottom-right-radius: 0; border-top-right-radius: 0;" type="">
+                <button style="border-bottom-left-radius: 0; border-top-left-radius: 0;">search</button>
+            </div>
+        </div>
+        <div class="part3">
+            <div class="cen-div">
+                <h1>Find Properties in these cities</h1>
+            </div>
+            <div class="cen-div">
+                <p>see what is a chair chair is noting but a non living animal with 4 legs</p>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <h2>New york</h2>
+                    <p>i dont know</p>
+                </div>
+                <div class="card">
+                    <h2>New york</h2>
+                    <p>i dont know</p>
+                </div>
+                <div class="card">
+                    <h2>New york</h2>
+                    <p>i dont know</p>
+                </div>
+                <div class="card">
+                    <h2>New york</h2>
+                    <p>i dont know</p>
+                </div>
+            </div>
+        </div>
+        <div class="part4">
+            <div class="part4-1">
+                <h1>Why you should work with us</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div class="part4-2"">
+                <div class=" info">
+                <div>
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <h2>Fast support</h2>
+                <p>24/7 support avaliable in our all services</p>
+            </div>
+            <div class="info">
+                <div>
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <h2>Fast support</h2>
+                <p>24/7 support avaliable in our all services</p>
+            </div>
+            <div class="info">
+                <div>
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <h2>Fast support</h2>
+                <p>24/7 support avaliable in our all services</p>
+            </div>
+
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div class="part4-3">
+                <div class="part4-3-1">
+                    <h1>Sing in to your account</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro sequi quasi facilis similique
+                        doloremque veritatis ex id et amet officiis! Ad optio excepturi recusandae eum aliquid dolor
+                        quis reprehenderit? Incidunt.</p>
+                </div>
+                <div class="part4-3-2">
+                    <button>Sing in or login -></button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="part5">
+            <div class="cen-div">
+                <h1>Featured Properties</h1>
+            </div>
+            <div class="cen-div">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            </div>
+            <div>
+                <ul>
+                    <li class="active-li">All properties</li>
+                    <li>hello</li>
+                    <li>chalo</li>
+                    <li>niklo</li>
+                </ul>
+            </div>
+            <div class="cardss">
+                <div class="cardd">
+                    <div class="top-pro">Top Property</div>
+                    <div class="for-sell">For Sell</div>
+                </div>
+                <div class="cardd">
+                    <div class="for-sell">For Sell</div>
+                </div>
+                <div class="cardd">
+                    <div class="for-sell">For Sell</div>
+                </div>
+                <div class="cardd">
+                    <div class="for-sell">For Sell</div>
+                </div>
+                <div class="cardd">
+                    <div class="for-sell">For Sell</div>
+                </div>
+                <div class="cardd">
+                    <div class="for-sell">For Sell</div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 20px;">
+                <button style="height: 70px; width: 200px; font-size: 30px; font-weight: bold;">See All -></button>
+            </div>
+        </div>
+
+        <div class="part6">
+            <div class="part6-1">
+                <h1>Discover a place You'll love to live</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit blanditiis dolor aut, molestiae,
+                    earum quas sit hic incidunt odit iste mollitia commodi ab deserunt quidem quo doloribus at facilis
+                    quisquam!</p>
+                <button>View Properties -></button>
+            </div>
+        </div>
+        <div class="part7">
+            <div class="part7-1">
+                <div class="part7-1-1">
+                    <h1>Hello world</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam, corrupti atque, inventore harum
+                        libero praesentium maxime alias magnam, soluta et deleniti consequatur ex neque modi. Explicabo
+                        deleniti id blanditiis fugiat!</p>
+                </div>
+                <div class="boxes">
+                    <div class="boxs">
+                        <div class="box">
+                            <h1>Hi! there</h1>
+                            <p>jhfuqu nsjfbu ioifh ohoq iouihfa</p>
+                        </div>
+                        <div class="box">
+                            <h1>Hi! there</h1>
+                            <p>jhfuqu nsjfbu ioifh ohoq iouihfa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes">
+                    <div class="boxs">
+                        <div class="box">
+                            <h1>Hi! there</h1>
+                            <p>jhfuqu nsjfbu ioifh ohoq iouihfa</p>
+                        </div>
+                        <div class="box">
+                            <h1>Hi! there</h1>
+                            <p>jhfuqu nsjfbu ioifh ohoq iouihfa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes">
+                    <div class="boxs">
+                        <div class="box">
+                            <h1>Hi! there</h1>
+                            <p>jhfuqu nsjfbu ioifh ohoq iouihfa</p>
+                        </div>
+                        <div class="box">
+                            <h1>Hi! there</h1>
+                            <p>jhfuqu nsjfbu ioifh ohoq iouihfa</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <button class="cen-div">Learn More -></button>
+                </div>
+            </div>
+            <div class="part7-2"></div>
+        </div>
+
+        <div class="part8">
+            <div class="class8info">
+                <div class="part8-info">
+                    <div class="part8-infoo">
+                        <div>
+                            <h1>Our customers are saying</h1>
+                        </div>
+                        <div class="part8-infoo-1">
+                            <div>
+                                <h2>10+M</h2>
+                                <p>Happy peoples</p>
+                            </div>
+                            <div>
+                                <h2>10+M</h2>
+                                <p>Happy peoples</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="part8-infoo">
+                        <div>
+                            <div class="part8-infooo">
+                                <img src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?_gl=1*asu8tw*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQzNzUwNzAkbzUkZzEkdDE3NTQzNzUwNzEkajU5JGwwJGgw"
+                                    alt="">
+                                <div>
+                                    <h1>Nithala</h1>
+                                    <p>developer</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam ipsa praesentium
+                                    velit maiores ut, delectus ea eaque eligendi odio aspernatur repellat, earum et
+                                    dignissimos minima vero iste voluptatem, minus hic?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part8-info2">
+                <div>
+                    <h2>No one trust on us like</h2>
+                </div>
+                <div class="part8info2-1">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="part9">
+            <div style="display: flex; justify-content: center;">
+                <div style="text-align: center;">
+                    <h1>Helllo world</h1>
+                    <p>I dont know why we only use Hello World</p>
+                </div>
+            </div>
+            <div class="kards">
+                <div class="kard">
+                    <img src="https://images.pexels.com/photos/4994517/pexels-photo-4994517.jpeg?_gl=1*174a2ax*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQ0MDc4OTMkbzYkZzEkdDE3NTQ0MDc5MDAkajUzJGwwJGgw"
+                        alt="">
+                    <ul>
+                        <li>apartment</li>
+                        <li>March 19,24</li>
+                    </ul>
+                    <h2>Hello World</h2>
+                    <h3>here also i've used hello world</h3>
+                </div>
+                <div class="kard">
+                    <img src="https://images.pexels.com/photos/4994517/pexels-photo-4994517.jpeg?_gl=1*174a2ax*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQ0MDc4OTMkbzYkZzEkdDE3NTQ0MDc5MDAkajUzJGwwJGgw"
+                        alt="">
+                    <ul>
+                        <li>apartment</li>
+                        <li>March 19,24</li>
+                    </ul>
+                    <h2>Hello World</h2>
+                    <h3>here also i've used hello world</h3>
+                </div>
+                <div class="kard">
+                    <img src="https://images.pexels.com/photos/4994517/pexels-photo-4994517.jpeg?_gl=1*174a2ax*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQ0MDc4OTMkbzYkZzEkdDE3NTQ0MDc5MDAkajUzJGwwJGgw"
+                        alt="">
+                    <ul>
+                        <li>apartment</li>
+                        <li>March 19,24</li>
+                    </ul>
+                    <h2>Hello World</h2>
+                    <h3>here also i've used hello world</h3>
+                </div>
+                <div class="kard">
+                    <img src="https://images.pexels.com/photos/4994517/pexels-photo-4994517.jpeg?_gl=1*174a2ax*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQ0MDc4OTMkbzYkZzEkdDE3NTQ0MDc5MDAkajUzJGwwJGgw"
+                        alt="">
+                    <ul>
+                        <li>apartment</li>
+                        <li>March 19,24</li>
+                    </ul>
+                    <h2>Hello World</h2>
+                    <h3>here also i've used hello world</h3>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <div class="part9-1">
+                    <div class="boxx">
+                        <div>
+                            <button>Start Today</button>
+                        </div>
+                        <div>
+                            <h1>Karle bhai start</h1>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam nobis minus eveniet
+                                excepturi assumenda eaque quod. Modi ex inventore deleniti, ratione tempore rerum maxime
+                                quas iste pariatur voluptatem corrupti expedita!</p>
+                        </div>
+                        <div style="display: flex; gap: 20px;">
+                            <div class="boxxx"></div>
+                            <div class="boxxx"></div>
+                        </div>
+                    </div>
+                    <div class="boxx">
+                        <img src="https://images.pexels.com/photos/1500610/pexels-photo-1500610.jpeg?_gl=1*1fb8471*_ga*MTg1MDYzMDc5LjE3NTQzMDY4MTk.*_ga_8JE65Q40S6*czE3NTQ0MTA2NjMkbzckZzEkdDE3NTQ0MTA2NjgkajU1JGwwJGgw"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="part10" ">
+            <div style=" text-align: center;" class="foother">
+            <i style="margin: 70px auto 30px auto; left: 0; right: 0; background-color: rgb(245, 245, 106); height: 50px; width: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%;"
+                class="fa-solid fa-share-nodes"></i>
+            <h1>Stay Up to date</h1>
+            <p>subcribe to our latest mails</p>
+            <input style="padding-left: 20px; height: 50px; width: 300px; margin-top: 20px; border-radius: 50px;"
+                type="text" placeholder="Your email"">
+                <button style=" border: none; background: none; margin-left: -70px;">Send -></button>
+        </div>
+        <div class="foother-text"
+            style="height: 100px; margin-top: 50px; background-color: rgb(228, 240, 252); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <p>Copy right Zenuxs Host</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-hotel"></i>
+                <h1>JustHome</h1>
+
+            </div>
+            <!-- <div>
+                <ul style="display: flex; gap: 30px; list-style: none;">
+                    <li><i class="fa-solid fa-crosshairs"></i></li>
+                    <li><i class="fa-solid fa-share-from-square"></i></li>
+                    <li><i class="fa-solid fa-shirt"></i></li>
+                </ul>
+            </div> -->
+        </div>
+        </div>
+    </main>
+    <script>
+        const toggleBtn = document.getElementById("menu-toggle");
+        const nav = document.querySelector(".nav");
+
+        toggleBtn.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+            display: grid;
+            grid-template-columns: 200px 200px 200px 200px;
+            grid-template-rows: 230px;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .child {
+            border: 2px solid;
+            
+        }
+        
+       .child img{
+        width: 100%;
+        bottom: 50%;
+       }
+
+        @media(max-width:890px) {
+            .main {
+                display: grid;
+                grid-template-columns: 200px 200px;
+                grid-template-rows: 200px 200px;
+                justify-content: center;
+                gap: 20px;
+            }
+        }
+
+        @media(max-width:440px) {
+            .main {
+                display: grid;
+                grid-template-columns: 300px;
+                grid-template-rows: 300px 300px 300px 300px;
+                justify-content: center;
+                gap: 20px;
+            }
+        }
+
+        
+
+        /* @media(max-width:430px){
+        .main{
+        display: grid;
+        grid-template-columns: 70px;
+        grid-template-rows: 200px 200px 200px 200px;
+        justify-content: center;
+        gap: 20px;
+       }
+       } */
+        
+    </style>
+</head>
+
+<body>
+
+    
+    <div class="main">
+        <div class="child">
+            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png" alt="">
+            <p>hello world</p>
+            <button>noting...</button>
+        </div>
+        <div class="child">
+            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png" alt="">
+            <p>hello world</p>
+            <button>noting...</button>
+        </div>
+        <div class="child">
+            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png" alt="">
+            <p>hello world</p>
+            <button>noting...</button>
+        </div>
+        <div class="child">
+            <img src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png" alt="">
+            <p>hello world</p>
+            <button>noting...</button>
+        </div>
+
+    </div>
+</body>
+
+</html>

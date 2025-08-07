@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background: linear-gradient(to right, gray, white);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            height: 60px;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            background: black;
+            opacity: 0.7;
+        }
+
+        .logo h1 {
+            margin-left: 30px;
+            color: #fefefe;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .lines {
+            display: none;
+        }
+
+        .nav ul {
+            margin-right: 30px;
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            height: 30px;
+        }
+        .lines{
+            display: none;
+        }
+
+        .nav ul li {
+            color: #fefefe;
+            font-size: 20px;
+            width: 90px;
+
+            border-radius: 50px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+
+        }
+
+        .nav ul li:hover {
+            background-color: #fefefe;
+            color: black;
+        }
+
+
+        @media (max-width:900px) {
+            .lines {
+                display: block;
+                background: transparent;
+                margin-right: 30px;
+                cursor: pointer;
+            }
+
+            .line {
+                width: 30px;
+                height: 3px;
+                background: #fefefe;
+                margin: 6px 0;
+            }
+            .nav{
+                background-color: black;
+                width: 100vw;
+                position: absolute;
+                top: 60px;
+                height: 0px;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;    
+                transition: 0.5s;        
+                
+            }
+            .nav ul{
+                transition: 0.5s;
+                opacity: 0;
+                margin: 80px auto 0 auto;          
+                display: block;
+                
+                
+            }
+            .nav ul li {
+                font-size: 40px;
+                font-size: 20px;
+                margin-bottom: 50px;
+                transition: 0.4s;
+                text-align: center;
+            }
+
+            .nav ul li:hover{
+                width: 150px;
+                height: 50px;
+                
+            }
+        }
+
+        .nav.active{
+            
+            height: 450px;
+        }
+        .nav.active ul{
+        
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <h1>Zenuxs Host</h1>
+        </div>
+        <div class="lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li>home</li>
+                <li>about</li>
+                <li>contact</li>
+                <li>services</li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        const lines = document.querySelector(".lines");
+        lines.onclick = function(){
+            const nav = document.querySelector(".nav");
+            nav.classList.toggle("active")
+        }
+    </script>
+</body>
+
+</html>
