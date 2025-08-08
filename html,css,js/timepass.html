@@ -1,11 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Card Slider</title>
+  <style>
+    .slider-container {
+      overflow: hidden;
+      width: 940px;
+      border: 2px solid #000;
+      margin-bottom: 20px;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+      width: 2820px; 
+    }
+
+    .slide {
+      width: 940px;
+      flex-shrink: 0;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+      background-color: #f0f0f0;
+      border-right: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body>
-    
+
+<div class="slider-container">
+  <div class="slider-track">
+    <div style="background-color: aqua;" class="slide">Slide 1</div>
+    <div style="background-color: chartreuse;" class="slide">Slide 2</div>
+    <div style="background-color: darkorange;"  class="slide">Slide 3</div>
+  </div>
+</div>
+
+<button id="prev">Previous</button>
+<button id="next">Next</button>
+
+<script>
+  const sliderTrack = document.querySelector('.slider-track');
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  const totalSlides = 3;
+  const slideWidth = 940;
+  let currentIndex = 0;
+
+  const updateSlider = () => {
+    sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === totalSlides - 1;
+  };
+
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  });
+
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < totalSlides - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  updateSlider(); 
+</script>
+
 </body>
 </html>
