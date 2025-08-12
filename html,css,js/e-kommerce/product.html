@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHOP.CO - Product</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #fff;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        .top-banner {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        .top-banner a {
+            color: #fff;
+            text-decoration: underline;
+            margin-left: 8px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .left-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .nav-desktop {
+            display: none;
+        }
+
+        .search-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            position: relative;
+            display: none;
+        }
+
+        .search-box input {
+            padding: 8px 12px 8px 35px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            width: 200px;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #333;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .product-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            order: 3;
+            margin-top: 15px;
+        }
+
+        .thumbnails img {
+            width: 80px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+
+        .thumbnails img:hover {
+            border-color: #000;
+        }
+
+        .main-image {
+            order: 1;
+        }
+
+        .main-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            order: 2;
+        }
+
+        .product-info h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stars small {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .price .old {
+            text-decoration: line-through;
+            color: #777;
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+
+        .price .discount {
+            color: #ff0000;
+            font-size: 1rem;
+            background: #ffecec;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .product-info p {
+            margin: 15px 0;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .colors-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .colors {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0 20px;
+        }
+
+        .colors div {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .colors div:hover {
+            transform: scale(1.1);
+        }
+
+        .colors div.active {
+            border-color: #000;
+        }
+
+        .sizes-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .sizes {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .sizes button {
+            border-radius: 50px;
+            padding: 8px 16px;
+            background: #f0f0f0;
+            cursor: pointer;
+            color: #333;
+            border: 1px solid #ddd;
+            font-weight: 500;
+            transition: all 0.2s;
+            min-width: 70px;
+        }
+
+        .sizes button:hover {
+            background: #e0e0e0;
+        }
+
+        .sizes button.active {
+            background: #080808;
+            color: #fff;
+            border-color: #000;
+        }
+
+        .cart-controls {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .quantity-control button {
+            background: #f5f5f5;
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-control span {
+            width: 40px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .add-to-cart {
+            border-radius: 50px;
+            padding: 12px 30px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .add-to-cart:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .reviews-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .reviews-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .review-card {
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .review-card strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .review-card p {
+            margin: 10px 0;
+            color: #444;
+        }
+
+        .review-card small {
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        .related-section {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .related-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter {
+            background: #000;
+            color: #fff;
+            padding: 36px 22px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 30px 22px
+        }
+
+        .newsletter input {
+            padding: 12px 14px;
+            border-radius: 20px;
+            border: 0;
+            outline: none;
+            width: 320px;
+            max-width: 60%
+        }
+
+        .newsletter button {
+            padding: 12px 18px;
+            border-radius: 20px;
+            border: 0;
+            margin-left: 10px;
+            cursor: pointer
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .related-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .related-card p {
+            padding: 15px;
+            font-size: 0.95rem;
+        }
+
+        .related-card strong {
+            font-size: 1.1rem;
+        }
+
+        footer {
+            margin-top: 60px;
+            background: #e7dede;
+            color: #201f1f;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .footer-grid h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-grid div>div {
+            margin-bottom: 8px;
+        }
+
+        .footer-grid a {
+            color: #141414;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-grid a:hover {
+            color: #131212;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            color: #252525;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile nav */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 280px;
+            height: 100%;
+            background: #fff;
+            z-index: 1000;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s;
+        }
+
+        .mobile-nav.open {
+            left: 0;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /* Responsive styles */
+        @media (min-width: 576px) {
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav-desktop {
+                display: flex;
+                gap: 25px;
+            }
+            .nav-desktop *{
+                text-decoration: none;
+                font-size: 30px;
+                color: black;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            .menu-toggle {
+                display: none;
+            }
+
+            .search-box {
+                display: block;
+            }
+
+            .search-icon-mobile {
+                display: none;
+            }
+
+            .product-section {
+                grid-template-columns: 100px 1fr 1fr;
+                gap: 30px;
+            }
+
+            .thumbnails {
+                flex-direction: column;
+                gap: 15px;
+                order: 1;
+                margin-top: 0;
+            }
+
+            .thumbnails img {
+                width: 100%;
+            }
+
+            .main-image {
+                order: 2;
+            }
+
+            .product-info {
+                order: 3;
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .related-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .search-box input {
+                width: 250px;
+            }
+
+            .product-info h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-banner">Sign up and get 20% off on your first order <a href="#">Sign Up Now</a></div>
+
+    <header>
+        <div class="left-header">
+            <button class="menu-toggle" id="menuBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+            <div class="logo">SHOP.CO</div>
+        </div>
+
+        <nav class="nav-desktop" role="navigation" aria-label="Main">
+            <a href="#">Shop</a>
+            <a href="#">On Sale</a>
+            <a href="#">New Arrivals</a>
+            <a href="#">Brands</a>
+        </nav>
+
+        <div class="search-row">
+            <div class="search-box" id="searchBox">
+                <i class="fa-solid fa-magnifying-glass" id="searchIconDesktop"></i>
+                <input id="searchInput" type="search" placeholder="Search for products..." />
+            </div>
+            <button class="icon-btn search-icon-mobile" id="searchMobileBtn" aria-label="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button class="icon-btn" id="cartBtn" aria-label="Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+            <button class="icon-btn" id="userBtn" aria-label="Account">
+                <i class="fa-regular fa-user"></i>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <a href="#">Shop</a>
+        <a href="#">On Sale</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">Brands</a>
+        <div style="margin-top:auto;font-size:14px;color:#666">© Shop.co</div>
+    </nav>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="container">
+        <div class="product-section">
+            <div class="main-image">
+                <img src="https://nobero.com/cdn/shop/files/verdigris-blue_a5855cb1-684b-4ee3-81d1-4c63a974b4ce.jpg?v=1734845956&width=940"
+                    alt="Main product image">
+            </div>
+
+            <div class="product-info">
+                <h1>ONE LIFE GRAPHIC T-SHIRT</h1>
+                <div class="stars">★★★★★ <small>4.5/5</small></div>
+                <div class="price">
+                    <span>$260</span>
+                    <span class="old">$300</span>
+                    <span class="discount">-40%</span>
+                </div>
+                <p>This graphic t-shirt is perfect for any occasion. Crafted from a soft and breathable fabric, it
+                    offers superior comfort and style.</p>
+
+                <div class="colors-title">Colors:</div>
+                <div class="colors">
+                    <div style="background:#444" class="active"></div>
+                    <div style="background:#223344"></div>
+                    <div style="background:#004400"></div>
+                </div>
+
+                <div class="sizes-title">Choose Size:</div>
+                <div class="sizes">
+                    <button class="active">Small</button>
+                    <button>Medium</button>
+                    <button>Large</button>
+                    <button>X-Large</button>
+                </div>
+
+                <div class="cart-controls">
+                    <div class="quantity-control">
+                        <button id="decrement">-</button>
+                        <span id="quantity">1</span>
+                        <button id="increment">+</button>
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="thumbnails">
+                <img src="https://nobero.com/cdn/shop/files/verdigris-blue_a5855cb1-684b-4ee3-81d1-4c63a974b4ce.jpg?v=1734845956&width=940"
+                    alt="Product thumbnail">
+                <img src="https://nobero.com/cdn/shop/files/verdigris-blue_a5855cb1-684b-4ee3-81d1-4c63a974b4ce.jpg?v=1734845956&width=940"
+                    alt="Product thumbnail">
+                <img src="https://nobero.com/cdn/shop/files/verdigris-blue_a5855cb1-684b-4ee3-81d1-4c63a974b4ce.jpg?v=1734845956&width=940"
+                    alt="Product thumbnail">
+            </div>
+        </div>
+
+        <div class="reviews-section">
+            <div style="display: flex; align-items: center; justify-content: space-evenly; border-bottom: 1px solid;">
+                <h1 style="color: gray;">Product detials</h1>
+                <h1 style="border-bottom: 5px solid black;">Reating & review</h1>
+                <h1 style="color: gray; margin-bottom: 30px;">FAQs</h1>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h2>Rating & Reviews</h2>
+                </div>
+                <div>
+                    <button style="height: 40px; width: 100px; background: transparent; color: black; border: 1px solid gray; border-radius: 50px;" >Latest</button>
+                    <button style="height: 40px; width: 150px; background-color: black; color: white; border: none; border-radius: 50px;" >Write a review</button>
+                </div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <strong>Samantha D.</strong>
+                    <div class="stars">★★★★★</div>
+                    <p>"I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a
+                        fellow designer, I appreciate the attention to detail."</p>
+                    <small>Posted on August 14, 2023</small>
+                </div>
+                <div class="review-card">
+                    <strong>Alex M.</strong>
+                    <div class="stars">★★★★★</div>
+                    <p>"The t-shirt exceeded my expectations! The colors are vibrant and the print quality is
+                        top-notch."</p>
+                    <small>Posted on August 15, 2023</small>
+                </div>
+                <div class="review-card">
+                    <strong>Olivia P.</strong>
+                    <div class="stars">★★★★★</div>
+                    <p>"I value simplicity and functionality. This t-shirt not only represents those principles but also
+                        feels great to wear."</p>
+                    <small>Posted on August 17, 2023</small>
+                </div>
+                <div class="review-card">
+                    <strong>Liam K.</strong>
+                    <div class="stars">★★★★☆</div>
+                    <p>"Fusion of comfort and creativity. The fabric is soft, and the design speaks volumes."</p>
+                    <small>Posted on August 18, 2023</small>
+                </div>
+                <div class="review-card">
+                    <strong>Ethan R.</strong>
+                    <div class="stars">★★★★☆</div>
+                    <p>"The fabric is soft and the print looks neat. A good buy for the price."</p>
+                    <small>Posted on August 16, 2023</small>
+                </div>
+                <div class="review-card">
+                    <strong>Ava H.</strong>
+                    <div class="stars">★★★★★</div>
+                    <p>"I'm not just wearing a t-shirt; I'm wearing a piece of design philosophy."</p>
+                    <small>Posted on August 19, 2023</small>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+                <button
+                    style="height: 40px; width: 150px; border: 1px solid black; background: transparent; border-radius: 50px;">Load
+                    more</button>
+            </div>
+        </div>
+
+        <div class="related-section">
+            <h2>You Might Also Like</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                        alt="Polo with Contrast Trims">
+                    <p>Polo with Contrast Trims<br><strong>$212</strong> <span class="old">$242</span></p>
+                </div>
+                <div class="related-card">
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                        alt="Gradient Graphic T-shirt">
+                    <p>Gradient Graphic T-shirt<br><strong>$145</strong></p>
+                </div>
+                <div class="related-card">
+                    <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                        alt="Polo with Tipping Details">
+                    <p>Polo with Tipping Details<br><strong>$180</strong></p>
+                </div>
+                <div class="related-card">
+                    <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                        alt="Black Striped T-shirt">
+                    <p>Black Striped T-shirt<br><strong>$120</strong> <span class="old">$150</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="newsletter">
+        <h3 style="font-size:20px;margin:0;font-weight:900">STAY UPTO DATE ABOUT OUR LATEST OFFERS</h3>
+        <div style="margin-top:14px">
+            <input id="newsletterEmail" placeholder="Enter your email address" />
+            <button id="subscribeBtn">Subscribe</button>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>SHOP.CO</h4>
+                <p style="margin:6px 0 0;color:#bbb">We create clothes you'll love and wear with pride.</p>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <div><a href="#">About</a></div>
+                <div><a href="#">Features</a></div>
+                <div><a href="#">Works</a></div>
+            </div>
+            <div>
+                <h4>Help</h4>
+                <div><a href="#">Customer Support</a></div>
+                <div><a href="#">Delivery Details</a></div>
+                <div><a href="#">Privacy Policy</a></div>
+            </div>
+            <div>
+                <h4>Resources</h4>
+                <div><a href="#">Free eBooks</a></div>
+                <div><a href="#">How-to Blog</a></div>
+                <div><a href="#">YouTube Playlist</a></div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2023 Shop.co. All rights reserved.
+        </div>
+    </footer>
+    <script>
+        // Mobile menu functionality
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const overlay = document.getElementById('overlay');
+
+        menuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('open');
+            overlay.classList.add('show');
+            mobileNav.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        });
+
+        overlay.addEventListener('click', () => {
+            mobileNav.classList.remove('open');
+            overlay.classList.remove('show');
+            mobileNav.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                mobileNav.classList.remove('open');
+                overlay.classList.remove('show');
+                mobileNav.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Search toggle for mobile
+        const searchMobileBtn = document.getElementById('searchMobileBtn');
+        const searchBox = document.getElementById('searchBox');
+        const searchInput = document.getElementById('searchInput');
+
+        searchMobileBtn.addEventListener('click', () => {
+            document.body.classList.toggle('search-active');
+            if (searchInput.style.display === 'block') {
+                searchInput.style.display = '';
+                searchInput.blur();
+            } else {
+                searchInput.style.display = 'block';
+                searchInput.focus();
+            }
+        });
+
+        // Quantity controls
+        const decrementBtn = document.getElementById('decrement');
+        const incrementBtn = document.getElementById('increment');
+        const quantityDisplay = document.getElementById('quantity');
+
+        decrementBtn.addEventListener('click', () => {
+            let quantity = parseInt(quantityDisplay.textContent);
+            if (quantity > 1) {
+                quantityDisplay.textContent = quantity - 1;
+            }
+        });
+
+        incrementBtn.addEventListener('click', () => {
+            let quantity = parseInt(quantityDisplay.textContent);
+            quantityDisplay.textContent = quantity + 1;
+        });
+
+        // Size selection
+        const sizeButtons = document.querySelectorAll('.sizes button');
+        sizeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sizeButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+
+        // Color selection
+        const colorOptions = document.querySelectorAll('.colors div');
+        colorOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                colorOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

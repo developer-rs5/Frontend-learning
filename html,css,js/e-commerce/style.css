@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.announcmentBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 100%;
+    background-color: black;
+}
+
+.announcmentBar div{
+    display: flex;
+    gap: 5px;
+}
+.announcmentBar .close{
+    position: absolute;
+    right: 40px;
+}
+.announcmentBar p{
+    color: #fefefe;
+}
+
+#close-btn{
+    color: #fefefe;
+    font-size: 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+nav{
+    height: 50px;
+    width: 100%;
+    background-color: #fefefe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.logo{
+    font-size: 25px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+nav ul li{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav input{
+    width: 500px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 50px;
+    padding-left: 20px;
+}
+
+.nav-right{
+    display: flex;
+    gap: 20px;
+}
+.search-icon{
+    display: none;
+}
+.background-image {
+  width: 100%;
+  min-height: 400px; /* or whatever minimum height you want */
+  background-image: url("https://img.freepik.com/premium-photo/woman-suit-red-yellow-background_760443-3649.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; /* better centering */
+  padding: 50px 20px; /* add some horizontal padding */
+  box-sizing: border-box; /* include padding in size */
+  color: white; /* or whatever text color fits */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; 
+  align-items: center;
+  text-align: center; */
+}
+
+
+@media(max-width:1164px){
+    nav {
+        gap: 100px;
+    }
+    nav input{
+        display: none;  
+    }
+    .search-icon{
+        display: flex;
+    }
+}
+
+@media(max-width:800px){
+    ul li{
+        display: none;
+    }
+    .logo i {
+        display: flex;
+    }
+
+    .background-image{
+        height: 800px;
+    }
+}
+
+@media(max-width:550px){
+    nav{
+        gap: 3  0px;
+    }
+    .announcmentBar .close{
+        right: 25px;
+    }
+    .announcmentBar{
+        font-size: 12px;
+    }
+}

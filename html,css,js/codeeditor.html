@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VS Code Style Web Editor</title>
+<style>
+    body {
+        margin: 0;
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+        background: #1e1e1e;
+    }
+    #container {
+        width: 50%;
+        height: 100vh;
+    }
+    iframe {
+        width: 50%;
+        height: 100vh;
+        border: none;
+        background: white;
+    }
+</style>
+<!-- Monaco Editor CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+
+<div id="container"></div>
+<iframe id="preview"></iframe>
+
+<script>
+require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs' } });
+
+require(['vs/editor/editor.main'], function () {
+    const editor = monaco.editor.create(document.getElementById('container'), {
+        value: `<!-- Write HTML here -->
+<h1>Hello World</h1>
+<style>
+h1 {
+    color: red;
+    text-align: center;
+}
+</style>
+<script>
+console.log('Hello from JavaScript');
+<\/script>`,
+        language: 'html',
+        theme: 'vs-dark',
+        automaticLayout: true
+    });
+
+    function updatePreview() {
+        document.getElementById('preview').srcdoc = editor.getValue();
+    }
+
+    editor.onDidChangeModelContent(updatePreview);
+    updatePreview();
+});
+</script>
+
+</body>
+</html>

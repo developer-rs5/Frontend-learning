@@ -83,6 +83,15 @@
     }
   });
 
+  
+  setInterval(()=> {
+    if(currentIndex > 1){
+      currentIndex=0
+    }else{
+    currentIndex++}
+    updateSlider();
+  }, 1000);
+
   updateSlider(); 
 </script>
 
