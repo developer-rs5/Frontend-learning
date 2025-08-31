@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Realm | Premium Server</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oxanium:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0d1117;
+            --darker-bg: #06090f;
+            --accent: #3a6fc4;
+            --accent-light: #5294e2;
+            --text: #e6edf3;
+            --text-dim: #9da7b3;
+            --online: #3fb950;
+            --offline: #f85149;
+            --section-spacing: 6rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Oxanium', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(58, 111, 196, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(58, 111, 196, 0.1) 0%, transparent 25%);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: var(--darker-bg);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-light);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(58, 111, 196, 0.3);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(58, 111, 196, 0.4);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--text);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1633617477271-d4f351ff7c7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-light), #8ec6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(58, 111, 196, 0.5); }
+            to { text-shadow: 0 0 20px rgba(58, 111, 196, 0.8), 0 0 30px rgba(58, 111, 196, 0.6); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dim);
+        }
+
+        .server-status {
+            background-color: rgba(13, 17, 23, 0.8);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(82, 148, 226, 0.2);
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--online);
+            animation: pulseStatus 2s infinite;
+        }
+
+        @keyframes pulseStatus {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+
+        .status-offline {
+            background-color: var(--offline);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(58, 111, 196, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(58, 111, 196, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent-light);
+        }
+
+        /* 3D Character Section */
+        .character-section {
+            padding: var(--section-spacing) 5%;
+            text-align: center;
+            background-color: var(--darker-bg);
+            position: relative;
+        }
+
+        .character-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: var(--accent-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .character-container {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+            perspective: 1000px;
+            z-index: 1;
+        }
+
+        .minecraft-character {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            transform: rotateY(0deg) rotateX(0deg);
+            cursor: grab;
+        }
+
+        .minecraft-character:active {
+            cursor: grabbing;
+        }
+
+        .character-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #3a6fc4, #5294e2);
+            border: 2px solid #2a4f8c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: white;
+            backface-visibility: hidden;
+        }
+
+        .face-front {
+            transform: translateZ(100px);
+            background: url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80') no-repeat center center/cover;
+        }
+
+        .face-back {
+            transform: rotateY(180deg) translateZ(100px);
+            background: url('https://images.unsplash.com/photo-1565945887714-d5139f4eb0ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+        }
+
+        .face-right {
+            transform: rotateY(90deg) translateZ(100px);
+            background: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80') no-repeat center center/cover;
+        }
+
+        .face-left {
+            transform: rotateY(-90deg) translateZ(100px);
+            background: url('https://images.unsplash.com/photo-1622696113537-5a5e0855c256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+        }
+
+        .face-top {
+            transform: rotateX(90deg) translateZ(100px);
+            background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+        }
+
+        .face-bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+            background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+        }
+
+        .character-help {
+            margin-top: 2rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* Posts Section */
+        .posts-section {
+            padding: var(--section-spacing) 5%;
+            position: relative;
+        }
+
+        .posts-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .posts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .post-card {
+            background: linear-gradient(145deg, rgba(13, 17, 23, 0.8), rgba(6, 9, 15, 0.8));
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(82, 148, 226, 0.1);
+        }
+
+        .post-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(82, 148, 226, 0.3);
+        }
+
+        .post-image {
+            height: 200px;
+            background: linear-gradient(45deg, #3a6fc4, #5294e2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .post-card:hover .post-image img {
+            transform: scale(1.1);
+        }
+
+        .post-content {
+            padding: 1.8rem;
+        }
+
+        .post-title {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent-light);
+        }
+
+        .post-excerpt {
+            color: var(--text-dim);
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .post-date {
+            font-size: 0.9rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .read-more:hover {
+            gap: 0.8rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: var(--section-spacing) 5%;
+            background-color: var(--darker-bg);
+            position: relative;
+        }
+
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .gallery-item:nth-child(2n) {
+            animation-delay: 1.5s;
+        }
+
+        .gallery-item:nth-child(3n) {
+            animation-delay: 2.5s;
+        }
+
+        .gallery-item:nth-child(4n) {
+            animation-delay: 3.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+            animation: none;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            padding: var(--section-spacing) 5%;
+            position: relative;
+        }
+
+        .comments-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .comments-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .comment-form {
+            background: linear-gradient(145deg, rgba(13, 17, 23, 0.8), rgba(6, 9, 15, 0.8));
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(82, 148, 226, 0.1);
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-light);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(82, 148, 226, 0.3);
+            border-radius: 8px;
+            background-color: rgba(13, 17, 23, 0.6);
+            color: var(--text);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(58, 111, 196, 0.4);
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .comment {
+            background: linear-gradient(145deg, rgba(13, 17, 23, 0.8), rgba(6, 9, 15, 0.8));
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(82, 148, 226, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .comment:hover {
+            transform: translateY(-5px);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: var(--accent-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comment-date {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .comment-content {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            padding: 4rem 5% 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--accent-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .social-icons.footer-social {
+            font-size: 1.8rem;
+            gap: 1.5rem;
+        }
+
+        .copyright {
+            color: var(--text-dim);
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .posts-container, .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .posts-container, .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .character-container {
+                height: 300px;
+                max-width: 300px;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        @media (max-width: 968px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--darker-bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s;
+                z-index: 1000;
+                box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navigation">
+        <!-- Navigation will be loaded by JavaScript -->
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Hero content will be loaded by JavaScript -->
+    </section>
+
+    <!-- 3D Character Section -->
+    <section class="character-section" id="characterSection">
+        <!-- Character content will be loaded by JavaScript -->
+    </section>
+
+    <!-- Posts Section -->
+    <section class="posts-section" id="postsSection">
+        <!-- Posts content will be loaded by JavaScript -->
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallerySection">
+        <!-- Gallery content will be loaded by JavaScript -->
+    </section>
+
+    <!-- Comments Section -->
+    <section class="comments-section" id="commentsSection">
+        <!-- Comments content will be loaded by JavaScript -->
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <!-- Footer content will be loaded by JavaScript -->
+    </footer>
+
+    <script>
+        // Data for our page (simulating API responses)
+        const pageData = {
+            navigation: {
+                logo: {
+                    icon: '<i class="fas fa-cube"></i>',
+                    text: 'Zenuxs MC'
+                },
+                links: [
+                    { text: 'Home', url: '/' },
+                    { text: 'About', url: '#' },
+                    { text: 'Pricing', url: '#' },
+                    { text: 'Rules', url: '#' },
+                    { text: 'Contact', url: '#' }
+                ],
+                social: [
+                    { icon: 'fab fa-discord', url: 'https://discord.zenuxs.xyz', title: 'Discord' },
+                    { icon: 'fab fa-instagram', url: 'https://instagram.com/_zenuxs', title: 'Instagram' },
+                    { icon: 'fab fa-youtube', url: '#', title: 'YouTube' },
+                    { icon: 'fab fa-twitter', url: '#', title: 'Twitter' }
+                ],
+                loginText: 'Login'
+            },
+            hero: {
+                title: 'Explore Endless Possibilities',
+                description: 'The ultimate Minecraft survival experience with custom features and an amazing community',
+                status: {
+                    online: true,
+                    players: '24/48'
+                },
+                buttons: [
+                    { text: 'Join Now', icon: 'fas fa-play', url: '#', primary: true },
+                    { text: 'Premium Plans', icon: 'fas fa-crown', url: '#', primary: false }
+                ]
+            },
+            character: {
+                title: 'Meet Our Mascot',
+                helpText: 'Click and drag to rotate the character',
+                skinUser: 'Steve' // Default Minecraft character
+            },
+            posts: {
+                title: 'Latest News',
+                items: [
+                    {
+                        title: 'New Nether Update Live!',
+                        excerpt: 'Explore the revamped Nether with new biomes, mobs, and challenges. Our custom Nether expansion adds 3 new biomes and 5 new mob types.',
+                        date: 'October 15, 2023',
+                        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+                    },
+                    {
+                        title: 'Player Build Contest',
+                        excerpt: 'Join our monthly build contest with amazing prizes. This month\'s theme: Futuristic Cities. Submit your builds by October 25th.',
+                        date: 'October 10, 2023',
+                        image: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80'
+                    },
+                    {
+                        title: 'Server Maintenance Complete',
+                        excerpt: 'All systems are now running smoothly with improved performance. We\'ve upgraded to version 1.19.3 and added 5 new custom plugins.',
+                        date: 'October 5, 2023',
+                        image: 'https://images.unsplash.com/photo-1565945887714-d5139f4eb0ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+                    }
+                ]
+            },
+            gallery: {
+                title: 'Server Highlights',
+                items: [
+                    {
+                        image: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80',
+                        caption: 'Epic Castle Build'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+                        caption: 'Community Event'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1622696113537-5a5e0855c256?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+                        caption: 'Parkour Challenge'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1565945887714-d5139f4eb0ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+                        caption: 'Custom Landscape'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+                        caption: 'Nether Fortress'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1633617477271-d4f351ff7c7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+                        caption: 'Mining Operation'
+                    }
+                ]
+            },
+            comments: {
+                title: 'Community Comments',
+                formTitle: 'Leave a Comment',
+                comments: [
+                    {
+                        author: 'MinecraftPro',
+                        date: '2 days ago',
+                        content: 'This is hands down the best Minecraft server I\'ve ever played on! The community is amazing and the custom plugins make gameplay so much fun.'
+                    },
+                    {
+                        author: 'Builder4Life',
+                        date: '5 days ago',
+                        content: 'I love the build contests! The themes are always creative and the prizes are generous. Keep up the great work!'
+                    },
+                    {
+                        author: 'RedstoneWiz',
+                        date: '1 week ago',
+                        content: 'The technical server performance is impressive. No lag even with complex redstone contraptions. Highly recommend!'
+                    }
+                ]
+            },
+            footer: {
+                logo: {
+                    icon: '<i class="fas fa-cube"></i>',
+                    text: 'Zenuxs MC'
+                },
+                links: [
+                    { text: 'Home', url: '/' },
+                    { text: 'About', url: '#' },
+                    { text: 'Pricing', url: '#' },
+                    { text: 'Rules', url: '#' },
+                    { text: 'Contact', url: '#' },
+                    { text: 'Privacy Policy', url: '#' },
+                    { text: 'Terms of Service', url: '#' }
+                ],
+                social: [
+                    { icon: 'fab fa-discord', url: '#', title: 'Discord' },
+                    { icon: 'fab fa-instagram', url: '#', title: 'Instagram' },
+                    { icon: 'fab fa-youtube', url: '#', title: 'YouTube' },
+                    { icon: 'fab fa-twitter', url: '#', title: 'Twitter' }
+                ],
+                copyright: '© 2025 MinecraftRealm. All rights reserved. Managed and deployed by Zenuxs'
+            }
+        };
+
+        // Function to load Minecraft skin from Minotar API
+        async function loadMinecraftSkin(username) {
+            try {
+                const response = await fetch(`https://minotar.net/armor/body/${username}/100.png`);
+                if (response.ok) {
+                    return `https://minotar.net/armor/body/${username}/100.png`;
+                }
+                throw new Error('Skin not found');
+            } catch (error) {
+                console.error('Error loading Minecraft skin:', error);
+                // Return a default skin
+                return 'https://minotar.net/armor/body/Steve/100.png';
+            }
+        }
+
+        // Function to render navigation
+        function renderNavigation() {
+            const nav = document.getElementById('navigation');
+            const { logo, links, social, loginText } = pageData.navigation;
+            
+            nav.innerHTML = `
+                <div class="logo">
+                    ${logo.icon}
+                    <span>${logo.text}</span>
+                </div>
+                <div class="nav-links">
+                    ${links.map(link => `<a href="${link.url}">${link.text}</a>`).join('')}
+                </div>
+                <div class="nav-right">
+                    <div class="social-icons">
+                        ${social.map(item => `<a href="${item.url}" title="${item.title}"><i class="${item.icon}"></i></a>`).join('')}
+                    </div>
+                    <button class="login-btn"><i class="fas fa-user"></i> ${loginText}</button>
+                    <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                </div>
+            `;
+        }
+
+        // Function to render hero section
+        function renderHero() {
+            const hero = document.getElementById('hero');
+            const { title, description, status, buttons } = pageData.hero;
+            
+            hero.innerHTML = `
+                <div class="hero-content">
+                    <h1>${title}</h1>
+                    <p>${description}</p>
+                    
+                    <div class="server-status">
+                        <div class="status-indicator ${status.online ? '' : 'status-offline'}"></div>
+                        <span>${status.online ? 'Online -' : 'Offline -'}</span>
+                        <span>${status.online ? `${status.players} players` : 'Check back later'}</span>
+                    </div>
+                    
+                    <div class="cta-buttons">
+                        ${buttons.map(button => `
+                            <a href="${button.url}" class="cta-button ${button.primary ? '' : 'secondary'}">
+                                <i class="${button.icon}"></i> ${button.text}
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to render character section
+        async function renderCharacterSection() {
+            const section = document.getElementById('characterSection');
+            const { title, helpText, skinUser } = pageData.character;
+            
+            // Load Minecraft skin
+            const skinUrl = await loadMinecraftSkin(skinUser);
+            
+            section.innerHTML = `
+                <h2 class="section-title">${title}</h2>
+                <div class="character-container">
+                    <div class="minecraft-character" id="character">
+                        <div class="character-face face-front" style="background: url('${skinUrl}') no-repeat center center/cover"></div>
+                        <div class="character-face face-back" style="background: url('${skinUrl}') no-repeat center center/cover"></div>
+                        <div class="character-face face-right" style="background: url('${skinUrl}') no-repeat center center/cover"></div>
+                        <div class="character-face face-left" style="background: url('${skinUrl}') no-repeat center center/cover"></div>
+                        <div class="character-face face-top" style="background: url('${skinUrl}') no-repeat center center/cover"></div>
+                        <div class="character-face face-bottom" style="background: url('${skinUrl}') no-repeat center center/cover"></div>
+                    </div>
+                </div>
+                <p class="character-help">${helpText}</p>
+            `;
+            
+            // Add character rotation functionality
+            initCharacterRotation();
+        }
+
+        // Function to initialize character rotation
+        function initCharacterRotation() {
+            const character = document.getElementById('character');
+            let isDragging = false;
+            let previousMousePosition = { x: 0, y: 0 };
+            let rotateX = -10;
+            let rotateY = 10;
+            
+            // Set initial rotation
+            character.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            
+            character.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                previousMousePosition = { x: e.clientX, y: e.clientY };
+                character.style.cursor = 'grabbing';
+            });
+            
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                character.style.cursor = 'grab';
+            });
+            
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                const deltaX = e.clientX - previousMousePosition.x;
+                const deltaY = e.clientY - previousMousePosition.y;
+                
+                rotateY += deltaX * 0.5;
+                rotateX -= deltaY * 0.5;
+                
+                // Limit vertical rotation to avoid flipping
+                rotateX = Math.max(-90, Math.min(90, rotateX));
+                
+                character.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                
+                previousMousePosition = { x: e.clientX, y: e.clientY };
+            });
+            
+            // Touch events for mobile
+            character.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+                e.preventDefault();
+            });
+            
+            document.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+            
+            document.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                
+                const deltaX = e.touches[0].clientX - previousMousePosition.x;
+                const deltaY = e.touches[0].clientY - previousMousePosition.y;
+                
+                rotateY += deltaX * 0.5;
+                rotateX -= deltaY * 0.5;
+                
+                // Limit vertical rotation to avoid flipping
+                rotateX = Math.max(-90, Math.min(90, rotateX));
+                
+                character.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                
+                previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+                e.preventDefault();
+            });
+        }
+
+        // Function to render posts section
+        function renderPostsSection() {
+            const section = document.getElementById('postsSection');
+            const { title, items } = pageData.posts;
+            
+            section.innerHTML = `
+                <h2 class="section-title">${title}</h2>
+                <div class="posts-container">
+                    ${items.map(post => `
+                        <div class="post-card">
+                            <div class="post-image">
+                                <img src="${post.image}" alt="${post.title}">
+                            </div>
+                            <div class="post-content">
+                                <h3 class="post-title">${post.title}</h3>
+                                <p class="post-excerpt">${post.excerpt}</p>
+                                <div class="post-meta">
+                                    <span class="post-date"><i class="far fa-calendar"></i> ${post.date}</span>
+                                    <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // Function to render gallery section
+        function renderGallerySection() {
+            const section = document.getElementById('gallerySection');
+            const { title, items } = pageData.gallery;
+            
+            section.innerHTML = `
+                <h2 class="section-title">${title}</h2>
+                <div class="gallery-container">
+                    ${items.map(item => `
+                        <div class="gallery-item">
+                            <img src="${item.image}" alt="${item.caption}">
+                            <div class="gallery-caption">${item.caption}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // Function to render comments section
+        function renderCommentsSection() {
+            const section = document.getElementById('commentsSection');
+            const { title, formTitle, comments } = pageData.comments;
+            
+            section.innerHTML = `
+                <h2 class="section-title">${title}</h2>
+                <div class="comments-container">
+                    <div class="comment-form">
+                        <h3 class="form-title">${formTitle}</h3>
+                        <form id="commentForm">
+                            <div class="form-group">
+                                <label for="commentName">Name</label>
+                                <input type="text" id="commentName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="commentText">Your Comment</label>
+                                <textarea id="commentText" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Submit Comment</button>
+                        </form>
+                    </div>
+                    
+                    <div class="comments-list">
+                        ${comments.map(comment => `
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <span class="comment-author"><i class="fas fa-user"></i> ${comment.author}</span>
+                                    <span class="comment-date"><i class="far fa-clock"></i> ${comment.date}</span>
+                                </div>
+                                <p class="comment-content">${comment.content}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            // Add comment form submission handler
+            document.getElementById('commentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('commentName').value;
+                const text = document.getElementById('commentText').value;
+                
+                if (name && text) {
+                    // Add new comment to the list
+                    const commentsList = document.querySelector('.comments-list');
+                    const newComment = document.createElement('div');
+                    newComment.className = 'comment';
+                    newComment.innerHTML = `
+                        <div class="comment-header">
+                            <span class="comment-author"><i class="fas fa-user"></i> ${name}</span>
+                            <span class="comment-date"><i class="far fa-clock"></i> Just now</span>
+                        </div>
+                        <p class="comment-content">${text}</p>
+                    `;
+                    
+                    commentsList.prepend(newComment);
+                    
+                    // Clear the form
+                    document.getElementById('commentForm').reset();
+                    
+                    // Show success message
+                    alert('Comment submitted successfully!');
+                }
+            });
+        }
+
+        // Function to render footer
+        function renderFooter() {
+            const footer = document.getElementById('footer');
+            const { logo, links, social, copyright } = pageData.footer;
+            
+            footer.innerHTML = `
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        ${logo.icon}
+                        <span>${logo.text}</span>
+                    </div>
+                    <div class="footer-links">
+                        ${links.map(link => `<a href="${link.url}">${link.text}</a>`).join('')}
+                    </div>
+                    <div class="social-icons footer-social">
+                        ${social.map(item => `<a href="${item.url}" title="${item.title}"><i class="${item.icon}"></i></a>`).join('')}
+                    </div>
+                    <div class="copyright">${copyright}</div>
+                </div>
+            `;
+        }
+
+        // Initialize mobile menu functionality
+        function initMobileMenu() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Initialize everything when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Render all sections
+            renderNavigation();
+            renderHero();
+            await renderCharacterSection();
+            renderPostsSection();
+            renderGallerySection();
+            renderCommentsSection();
+            renderFooter();
+            
+            // Initialize functionality
+            initMobileMenu();
+            
+            // Simulate server status check
+            setTimeout(() => {
+                const statusIndicator = document.querySelector('.status-indicator');
+                const statusText = document.querySelector('.server-status span:nth-child(2)');
+                const playerCount = document.querySelector('.server-status span:nth-child(3)');
+                
+                // For demo purposes, randomly set online/offline status
+                const isOnline = Math.random() > 0.3;
+                
+                if (isOnline) {
+                    statusIndicator.classList.remove('status-offline');
+                    statusText.textContent = 'Online -';
+                    playerCount.textContent = '24/48 players';
+                } else {
+                    statusIndicator.classList.add('status-offline');
+                    statusText.textContent = 'Offline - Check back later';
+                    playerCount.textContent = '';
+                }
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

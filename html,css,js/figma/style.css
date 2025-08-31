@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: all 0.3s;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10%;
+    background-color: rgba(200, 197, 197, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li {
+    font-size: 20px;
+    color: white;
+}
+
+nav h1 {
+    font-size: 30px;
+    color: white;
+}
+
+nav hi:hover,
+nav ul li:hover {
+    color: rgb(255, 208, 0);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+
+.section1 {
+    width: 100%;
+    height: 1000px;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+
+
+}
+
+.deactive {
+    margin-top: 50px;
+
+    display: block;
+
+}
+
+.off {
+
+    height: 500px;
+}
+
+.hero {
+    position: absolute;
+    top: 200px;
+    margin-left: 100px;
+    width: 700px;
+}
+
+.section2 {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    position: absolute;
+    top: 600px;
+}
+
+.boxes {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.box {
+    min-width: calc(100% / 3);
+    flex: 0 0 auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #f9f9f9;
+    height: 300px;
+    background-image: url(./assets/service-item-bg.jpg);
+    border-radius: 12px;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box h3 {
+    margin: 10px 0;
+    margin-top: 40px;
+}
+
+
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.slider-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    background: #e23b3b;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+    background: #c12d2d;
+}
+
+.section3{
+    width: 100%;
+    height: 1500px;
+    
+    padding: 20px;
+    background-image: url(./assets/meetings-bg.jpg);
+    background-attachment: fixed;
+    position: absolute;
+    top: 600px;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .box {
+        min-width: calc(100% / 2);
+    }
+}
+
+
+@media (max-width: 480px) {
+    .box {
+        min-width: 100%;
+    }
+}
+
+
+@media(max-width: 1000px) {
+
+    nav {
+        height: 100px;
+        text-align: center;
+        background-color: rgba(27, 26, 26, 0.8);
+        display: block;
+    }
+
+
+    .nav {
+        display: none;
+    }
+
+    .deactive {
+        margin-top: 50px;
+
+        display: block;
+
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 40px;
+    }
+
+    .humberger {
+        display: block;
+        cursor: pointer;
+        width: 20px;
+    }
+
+    .line {
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        margin-top: 5px;
+    }
+}
+
+@media(max-width: 800px) {
+    .hero {
+        width: 300px;
+        margin-left: 50px;
+        top: 150px;
+    }
+
+    .video {
+        height: 600px;
+    }
+}
